@@ -124,7 +124,7 @@ class ActivityLogger
         return $this->useLog($logName);
     }
 
-    public function tap(callable $callback, string $eventName = null)
+    public function tap(callable $callback, ?string $eventName = null)
     {
         call_user_func($callback, $this->getActivity(), $eventName);
 
