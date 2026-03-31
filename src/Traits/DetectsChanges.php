@@ -53,6 +53,12 @@ trait DetectsChanges
         if (isset(static::$logAttributesToIgnore) && is_array(static::$logAttributesToIgnore)) {
             $attributes = array_diff($attributes, static::$logAttributesToIgnore);
         }
+        if (
+            isset(static::$ignoreChangedAttributes) &&
+            is_array(static::$ignoreChangedAttributes)
+        ) {
+            $attributes = array_diff($attributes, static::$ignoreChangedAttributes);
+        }
 
         return $attributes;
     }
